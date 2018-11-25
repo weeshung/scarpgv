@@ -1,0 +1,16 @@
+from bs4 import BeautifulSoup
+from selenium import webdriver
+import requests
+from selenium.webdriver.support.select import Select
+
+browser = webdriver.Chrome() #replace with .Firefox(), or with the browser of your choice
+url = "https://www.cathaycineplexes.com.sg/"
+browser.get(url) #navigate to the page
+
+select = Select(browser.find_element_by_xpath("//select[@id='movie']"))
+
+options = select.options
+
+for item in options:
+
+    print(item.text)
